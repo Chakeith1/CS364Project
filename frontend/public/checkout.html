@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/checkout.css">
+</head>
+<body>
+
+  <nav>
+    <div class="navTop">
+      <div class="navItem">
+        <img src="assets/images/logo.png" width="150" height="100" alt="Logo">
+      </div>
+      <div class="navItem">
+        <h2 class="limited">Checkout</h2>
+      </div>
+      <div class="navItem">
+        <button onclick="window.location.href='website.html'" class="backBtn">← Back</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="checkoutSection">
+    <ul id="checkoutList"></ul>
+    <p id="total">Total: $0.00</p>
+    <button id="confirm">Confirm Purchase</button>
+  </section>
+
+  <script src="assets/js/checkout.js"></script>
+</body>
+</html>

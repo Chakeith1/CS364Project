@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Cart</title>
+  <style>
+    button {
+      margin: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+  <h2>Your Cart</h2>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price (Each)</th>
+        <th>Total</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="cartTable"></tbody>
+  </table>
+
+  <p id="cartTotal"></p>
+
+  <button onclick="window.location.href='website.html'">← Back to Homepage</button>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem("cart")) || {};
+    const table = document.getElementById("cartTable");
+
+    function updateCartDisplay() {
+      table.innerHTML = "";
+      let total = 0;
+
+      Object.entries(cart).forEach(([name, item]) => {
+        const subtotal = item.quantity * item.price;
+        total += subtotal;
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${name}</td>
+          <td>${item.quantity}</td>
+          <td>$${item.price}</td>
+          <td>$${subtotal}</td>
+          <td><button data-name="${name}" class="removeBtn">Remove</button></td>
+        `;
+        table.appendChild(row);
+      });
+
+      document.getElementById("cartTotal").innerText = `Total: $${total.toFixed(2)}`;
+
+      // Add event listeners for "Remove" buttons
+      document.querySelectorAll(".removeBtn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          const productName = e.target.getAttribute("data-name");
+          delete cart[productName];
+          localStorage.setItem("cart", JSON.stringify(cart));
+          updateCartDisplay();
+        });
+      });
+    }
+
+    updateCartDisplay();
+  </script>
+  <button id="checkoutBtn">Proceed to Checkout</button>
+  <script>
+    document.getElementById("checkoutBtn").addEventListener("click", () => {
+      const cart = JSON.parse(localStorage.getItem("cart") || "{}");
+      if (Object.keys(cart).length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      window.location.href = "checkout.html";
+    });
+  </script>
+  
+</body>
+</html>

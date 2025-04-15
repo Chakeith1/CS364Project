@@ -1,0 +1,83 @@
+body{
+    font-family: "Roboto", sans-serif;
+    padding:0;
+    margin:0;
+}
+nav{
+    background-color: rgb(0, 0, 0);
+    color: black;
+    padding: 20px 50px
+}
+
+.navTop{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:10px;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.searchInput{
+    border: none;
+    background: transparent;
+}
+
+.limited{
+    font-size: 20px;
+    color:rgb(255, 255, 255);
+    border-bottom: 2px solid green;
+    cursor: pointer;
+}
+
+.navBottom{
+    color:white;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.menuItem{
+    margin-right: 50px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+
+.slider{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sliderWrapper{
+    display: flex;
+    flex-wrap: wrap;     
+    gap: 20px;           
+    justify-content: center;
+    padding: 10px;
+}
+
+.sliderItem{
+    width: 300px; 
+    height: 300px; 
+    flex: 0 0 auto; 
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.sliderItem:hover{
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+}
